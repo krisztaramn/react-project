@@ -15,7 +15,7 @@ function App() {
       </section>
       <p className="open-source">
         <a
-          href="https://github.com/krisztaramn/Project-Vanilla"
+          href="https://github.com/krisztaramn/react-project"
           target=" "
           className="git-link"
         >
