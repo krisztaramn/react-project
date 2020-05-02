@@ -3,6 +3,8 @@ import "./Main.css";
 import ReactAnimatedWeather from "react-animated-weather";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
+import FormatDay from "./FormatDay";
+import FormatTime from "./FormatTime";
 
 export default function Main(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
@@ -12,8 +14,7 @@ export default function Main(props) {
       temperature: response.data.main.temp,
       cityName: response.data.name,
       description: response.data.weather[0].description,
-      day: "Today",
-      time: "now",
+      date: new Date(response.data.dt * 1000),
     });
   }
 
@@ -45,11 +46,11 @@ export default function Main(props) {
           </div>
           <div className="col">
             <button className="current-day" disabled>
-              {weatherData.day}
+              <FormatDay date={weatherData.date} />
             </button>
             <span className="description">
               <span className="text-capitalize">{weatherData.description}</span>{" "}
-              <em>at</em> {weatherData.time}
+              <em>at</em> <FormatTime date={weatherData.date} />
             </span>
           </div>
         </div>
