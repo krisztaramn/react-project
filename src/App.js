@@ -10,7 +10,7 @@ function App() {
     <div className="App">
       <section>
         <Search />
-        <Main />
+        <Main defaultCity="Berlin" />
         <Forecast />
       </section>
       <p className="open-source">
