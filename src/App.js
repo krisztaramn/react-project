@@ -1,17 +1,13 @@
 import React from "react";
 import "./App.css";
 import Search from "./Search";
-import Main from "./Main";
-import Forecast from "./Forecast";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
     <div className="App">
       <section>
-        <Search />
-        <Main defaultCity="Berlin" />
-        <Forecast />
+        <Search defaultCity="Bucharest" />
       </section>
       <p className="open-source">
         <a
