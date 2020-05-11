@@ -1,35 +1,22 @@
 import React from "react";
 import "./Main.css";
-import ReactAnimatedWeather from "react-animated-weather";
 import "bootstrap/dist/css/bootstrap.min.css";
 import FormatDay from "./FormatDay";
 import FormatTime from "./FormatTime";
+import WeatherIcon from "./WeatherIcon";
+import TemperatureConversion from "./TemperatureConversion";
 
 export default function Main(props) {
   return (
     <div className="container">
       <div className="row">
         <div className="col">
-          <ReactAnimatedWeather
-            icon={"CLEAR_DAY"}
-            color="white"
-            size={70}
-            animate={true}
-          />
+          <span className="main-icon">
+            <WeatherIcon code={props.data.icon} />
+          </span>
         </div>
         <div className="col temperature-today">
-          <span className="current-temperature">
-            {Math.round(props.data.temperature)}
-          </span>
-          <span className="temperature-icon">
-            <button className="celsius" id="celsius">
-              °C
-            </button>
-            ||
-            <button className="fahrenheit" id="fahrenheit">
-              °F
-            </button>
-          </span>
+          <TemperatureConversion celsius={props.data.temperature} />
         </div>
         <div className="col">
           <button className="current-day" disabled>

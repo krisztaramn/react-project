@@ -15,6 +15,7 @@ export default function Search(props) {
       cityName: response.data.name,
       description: response.data.weather[0].description,
       date: new Date(response.data.dt * 1000),
+      icon: response.data.weather[0].icon,
     });
   }
 
@@ -43,7 +44,6 @@ export default function Search(props) {
                   className="search-bar"
                   type="text"
                   placeholder="Enter location"
-                  id="search-input"
                   onChange={handleCitySearch}
                 />
               </form>
@@ -53,11 +53,7 @@ export default function Search(props) {
             </div>
             <div className="col">
               <form>
-                <button
-                  type="submit"
-                  className="btn btn-primary"
-                  id="current-location"
-                >
+                <button type="submit" className="btn btn-primary">
                   Current location
                 </button>
               </form>
