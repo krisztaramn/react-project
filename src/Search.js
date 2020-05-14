@@ -61,7 +61,7 @@ export default function Search(props) {
           </div>
         </div>
         <Main data={weatherData} />
-        <Forecast />
+        <Forecast city={weatherData.cityName} />
       </div>
     );
   } else {

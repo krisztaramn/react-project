@@ -3,7 +3,7 @@ import "./Main.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import FormatDay from "./FormatDay";
 import FormatTime from "./FormatTime";
-import WeatherIcon from "./WeatherIcon";
+import MainIcon from "./MainIcon";
 import TemperatureConversion from "./TemperatureConversion";
 
 export default function Main(props) {
@@ -12,7 +12,7 @@ export default function Main(props) {
       <div className="row">
         <div className="col">
           <span className="main-icon">
-            <WeatherIcon code={props.data.icon} />
+            <MainIcon code={props.data.icon} />
           </span>
         </div>
         <div className="col temperature-today">
