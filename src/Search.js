@@ -33,6 +33,18 @@ export default function Search(props) {
     setCity(event.target.value);
   }
 
+  function findLocation(event) {
+    event.preventDefault();
+    navigator.geolocation.getCurrentPosition(showPosition);
+    function showPosition(position) {
+      let apiKey = "54b592f18fb16ddcfb4b8e4b9be5924f";
+      let lat = position.coords.latitude;
+      let lon = position.coords.longitude;
+      let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
+      axios.get(url).then(handleResponse);
+    }
+  }
+
   if (weatherData.ready) {
     return (
       <div className="Search">
@@ -53,7 +65,11 @@ export default function Search(props) {
             </div>
             <div className="col">
               <form>
-                <button type="submit" className="btn btn-primary">
+                <button
+                  type="submit"
+                  className="btn btn-primary"
+                  onClick={findLocation}
+                >
                   Current location
                 </button>
               </form>
